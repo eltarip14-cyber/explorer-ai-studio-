@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b24">
+<title>Explorer AI Studio</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="mountain">▲</span><span>Explorer <small>AI STUDIO</small></span></a>
+  <nav><a class="active" href="#home">الرئيسية</a><a href="#create">إنشاء فيديو</a><a href="#library">مكتبتي</a></nav>
+  <button class="menu" aria-label="القائمة">☰</button>
+</header>
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">اصنع قصتك بطريقة جديدة</span>
+      <h1>من ملفك… إلى <em>فيديو مذهل</em></h1>
+      <p>ارفع صورة أو مستنداً أو اكتب فكرتك، وجهّز مشروع فيديو بالذكاء الاصطناعي من مكان واحد.</p>
+      <a class="primary" href="#create">ابدأ إنشاء الفيديو <span>←</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="peak p1"></div><div class="peak p2"></div><div class="peak p3"></div><div class="river"></div><div class="art-label">CREATE · IMAGINE · EXPLORE</div></div>
+  </section>
+
+  <section class="categories">
+    <div class="section-heading"><div><span class="eyebrow">كل أدواتك</span><h2>استكشف الأقسام</h2></div><span class="muted">مساحة إبداعك</span></div>
+    <div class="tiles">
+      <a class="tile green" href="#create"><b>✦</b><strong>إنشاء الفيديو</strong><small>حوّل أفكارك إلى مشاهد</small></a>
+      <a class="tile blue" href="#create"><b>▧</b><strong>الصور والملفات</strong><small>ارفع ملفاتك بسهولة</small></a>
+      <a class="tile violet" href="#library"><b>◷</b><strong>مكتبتي</strong><small>مشاريعك السابقة</small></a>
+      <a class="tile orange" href="#create"><b>✎</b><strong>كتابة الأفكار</strong><small>ابدأ من وصف نصي</small></a>
+    </div>
+  </section>
+
+  <section id="create" class="studio">
+    <div class="section-heading"><div><span class="eyebrow">AI VIDEO WORKSPACE</span><h2>أنشئ فيديو جديداً</h2><p class="muted">أضف ملفاً أو اكتب وصف الفيديو الذي تتخيله.</p></div><span class="step">01 / 03</span></div>
+    <div class="workspace">
+      <div class="upload-panel">
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <input id="fileInput" type="file" accept="image/*,video/*,.pdf,.txt,.doc,.docx" multiple>
+          <span class="upload-icon">＋</span><strong>اضغط لإضافة الملفات</strong>
+          <small>صور، فيديوهات، PDF، ومستندات — حتى 25MB لكل ملف</small>
+          <span class="browse">اختيار الملفات</span>
+        </label>
+        <div id="fileList" class="file-list"><p class="muted empty">لم تتم إضافة ملفات بعد.</p></div>
+        <label class="field-label" for="prompt">ما الفيديو الذي تريد إنشاءه؟</label>
+        <textarea id="prompt" rows="4" placeholder="مثال: اصنع فيديو سينمائياً عن رحلة بين الجبال، مع حركة كاميرا هادئة وإضاءة ذهبية..."></textarea>
+        <div class="options">
+          <label>المدة<select id="duration"><option value="5">5 ثوانٍ</option><option value="10" selected>10 ثوانٍ</option><option value="15">15 ثانية</option><option value="30">30 ثانية</option></select></label>
+          <label>الأبعاد<select id="ratio"><option value="9:16">عمودي 9:16</option><option value="16:9">أفقي 16:9</option><option value="1:1">مربع 1:1</option></select></label>
+          <label>الجودة<select id="quality"><option>قياسية</option><option selected>عالية</option><option>عالية جداً</option></select></label>
+        </div>
+        <button id="generate" class="primary full">تجهيز طلب الفيديو <span>✦</span></button>
+        <p class="fineprint">هذه النسخة واجهة أولية: تجهيز الطلب يعمل محلياً، أما توليد ملف فيديو حقيقي فيحتاج ربط خدمة توليد فيديو ومفتاح API.</p>
+      </div>
+      <aside class="preview-panel">
+        <div class="preview-top"><strong>معاينة المشروع</strong><span class="status">جاهز للبدء</span></div>
+        <div class="preview-screen" id="previewScreen"><div class="preview-mountains">△</div><div class="play">▶</div><p>ستظهر معاينة ملفاتك هنا</p></div>
+        <div id="requestResult" class="request-result"><strong>خطوات العمل</strong><ol><li>ارفع ملفاً أو اكتب فكرتك.</li><li>اختر إعدادات الفيديو.</li><li>جهّز الطلب ثم اربط محرك التوليد.</li></ol></div>
+      </aside>
+    </div>
+  </section>
+  <section id="library" class="library">
+    <div class="section-heading"><div><span class="eyebrow">YOUR WORKSPACE</span><h2>مكتبتك</h2></div></div>
+    <div class="library-empty"><span>▤</span><strong>مشاريعك ستظهر هنا</strong><p>بعد ربط خدمة إنشاء الفيديو وحفظ المشاريع.</p></div>
+  </section>
+</main>
+<footer>Explorer AI Studio <span>اصنع شيئاً يستحق المشاهدة.</span></footer>
+<script src="app.js"></script>
+<script>if ("serviceWorker" in navigator) window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));</script>
+</body></html>
